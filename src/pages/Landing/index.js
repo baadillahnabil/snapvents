@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Box,
@@ -9,7 +10,13 @@ import {
 import LandingPageImage from "../../assets/images/lp.svg";
 import styles from "./styles";
 
-const Landing = () => {
+const Landing = ({ data }) => {
+  const navigate = useNavigate();
+
+  const hasData = useMemo(() => {
+    return Object.keys(data).length > 0;
+  }, [data]);
+
   return (
     <Container sx={styles.container}>
       <Box sx={styles.content}>
@@ -25,7 +32,15 @@ const Landing = () => {
         <Box sx={styles.imageBox}>
           <img src={LandingPageImage} alt="lp_img" />
         </Box>
-        <Button sx={styles.button}>🎉 Create my event</Button>
+        <Button
+          sx={styles.button}
+          onClick={() => {
+            if (hasData) navigate("/event");
+            else navigate("/event/create");
+          }}
+        >
+          🎉 {hasData ? "View" : "Create"} my event
+        </Button>
       </Box>
     </Container>
   );

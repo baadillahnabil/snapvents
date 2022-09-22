@@ -9,9 +9,14 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@date-io/dayjs": "^2.16.0",
+    "@dropzone-ui/react": "^6.7.12",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/material": "latest",
+    "@mui/x-date-pickers": "^5.0.2",
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.5",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.4.0",
